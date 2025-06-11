@@ -1,4 +1,4 @@
-package software.ulpgc.moneycalculator.architecture.persistence;
+package software.ulpgc.moneycalculator.architecture.IO;
 
 import software.ulpgc.moneycalculator.architecture.model.Currency;
 

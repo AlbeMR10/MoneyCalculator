@@ -3,12 +3,10 @@ package software.ulpgc.moneycalculator.architecture.control;
 import software.ulpgc.moneycalculator.architecture.model.Currency;
 import software.ulpgc.moneycalculator.architecture.model.ExchangeRate;
 import software.ulpgc.moneycalculator.architecture.model.Money;
-import software.ulpgc.moneycalculator.architecture.persistence.ExchangeRateLoader;
+import software.ulpgc.moneycalculator.architecture.IO.ExchangeRateLoader;
 import software.ulpgc.moneycalculator.architecture.view.CurrencyDialog;
 import software.ulpgc.moneycalculator.architecture.view.MoneyDialog;
 import software.ulpgc.moneycalculator.architecture.view.MoneyDisplay;
-
-import java.time.LocalDate;
 
 public class ExchangeCommand implements Command {
     private final MoneyDialog moneyDialog;
@@ -28,7 +26,7 @@ public class ExchangeCommand implements Command {
         Money money = moneyDialog.get();
         Currency currency = currencyDialog.get();
 
-        ExchangeRate exchangeRate = loader.load(money.currency(), currency, LocalDate.now());
+        ExchangeRate exchangeRate = loader.load(money.currency(), currency);
         Money result = new Money(money.amount() * exchangeRate.rate(), currency);
 
         moneyDisplay.show(result);
