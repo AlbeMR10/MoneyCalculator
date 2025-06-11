@@ -24,9 +24,9 @@ public class MainFrame extends JFrame {
 
         this.setLayout(new FlowLayout());
         this.add(createMoneyDialog());
-        this.add(createCurencyDialog());
-        this.add(createMoneyDisplay());
+        this.add(createCurrencyDialog());
         this.add(toolBar());
+        this.add(createMoneyDisplay());
     }
 
     private Component createMoneyDialog() {
@@ -35,7 +35,7 @@ public class MainFrame extends JFrame {
         return dialog;
     }
 
-    private Component createCurencyDialog() {
+    private Component createCurrencyDialog() {
         SwingCurrencyDialog dialog = new SwingCurrencyDialog();
         this.currencyDialog = dialog;
         return dialog;
@@ -44,6 +44,7 @@ public class MainFrame extends JFrame {
     private Component createMoneyDisplay() {
         SwingMoneyDisplay display = new SwingMoneyDisplay();
         this.moneyDisplay = display;
+
         return display;
     }
 
